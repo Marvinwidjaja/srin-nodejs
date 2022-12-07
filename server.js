@@ -9,10 +9,13 @@ const url = "mongodb://127.0.0.1:27017";
 //Routers
 import bookRouter from "./routes/books";
 
-mongoose.connect("mongodb://127.0.0.1:27017/srin", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://kiboshi:kiboshi@cluster0.fcjwcrg.mongodb.net/srin",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 var db = mongoose.connection;
 db.on("error", console.log.bind(console, "connection error"));
