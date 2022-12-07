@@ -13,7 +13,7 @@ export const addBook = async (req, res) => {
       title: req.body.title,
       author: req.body.author,
     });
-    if (duplicate != null) {
+    if (duplicate.length != 0) {
       return res.send({
         success: false,
         message: "Book already exists",

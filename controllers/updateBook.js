@@ -13,10 +13,12 @@ export const updateBook = async (req, res) => {
 
     const book = await Books.findById(BOOK_ID);
     const duplicate = await Books.find({
+      _id: { $ne: BOOK_ID },
       title: req.body.title,
       author: req.body.author,
     });
-    if (duplicate != null) {
+
+    if (duplicate.length != 0) {
       return res.send({
         success: false,
         message: "Book already exists",
